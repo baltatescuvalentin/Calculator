@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two&display=swap');
+
+body {
+    background-color: rgb(96, 164, 157);
+}
+
+.calculator {
+    width: 350px;
+    height: 460px;
+    border: 8px solid black;
+    top: 60px;
+    left: 38.5%;
+    position: absolute;
+    background-color: rgb(53, 45, 45);
+    gap: 2px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-family: 'Lobster Two';
+}
+
+footer {
+    position: absolute;
+    font-size: 1.2rem;
+    text-align: center;
+    background-color: rgba(232, 219, 219, 0.4);
+    min-width: 100%;
+    margin: 0;
+    padding: 0;
+    left: 0;
+    right: 0;
+    top: 90vh;
+}
+
+.fa-github {
+    font-size: 20px;
+}
+
+button {
+    height: 72px;
+    width: 85px;
+    font-size: 35px;
+    border-radius: 8px;
+}
+
+.screen {
+    width: 100%;
+    height: 90px;
+    background-color: rgb(204, 192, 192);
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    font-size: 30px;
+    text-align: end;
+}
+
+.screen > p {
+    flex:0 1 calc(50% - 10px);
+    margin: 5px;
+}
+
+.top {
+    background-color: lightblue;
+}
+
+.lateral {
+    background-color: orange;
+}
+
+.numbers {
+    background-color: rgb(71, 169, 226);
+}
+
+#warnings {
+    color: rgb(189, 51, 51);
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    text-align: center;
+}
+
+
+
+
+
+
+
+@media screen and (max-width: 900px) {
+    .footer_content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    footer { 
+        width: 100vw;
+        margin: 0; 
+        padding: 0; 
+    }
+    
+}
