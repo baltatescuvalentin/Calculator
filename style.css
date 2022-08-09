@@ -4,17 +4,25 @@ body {
     background-color: rgb(96, 164, 157);
 }
 
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
 .calculator {
     width: 350px;
     height: 460px;
-    border: 8px solid black;
-    top: 60px;
-    left: 38.5%;
-    position: absolute;
+    border: 16px solid black;
+    border-radius: 8px;
+    margin-top: 5%;
     background-color: rgb(53, 45, 45);
     gap: 2px;
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
     font-family: 'Lobster Two';
 }
@@ -41,12 +49,14 @@ button {
     width: 85px;
     font-size: 35px;
     border-radius: 8px;
+    font-family: 'Lobster Two';
 }
 
 .screen {
     width: 100%;
     height: 90px;
     background-color: rgb(204, 192, 192);
+    border-radius: 4px;
     display: flex;
     flex-direction: column;
     justify-content: baseline;
@@ -92,10 +102,18 @@ button {
         align-items: center;
     }
 
+    .calculator {
+        margin-top: 10%;
+    }
+
     footer { 
         width: 100vw;
         margin: 0; 
         padding: 0; 
     }
     
+    button {
+        height: 70px;
+        width: 80px;
+    }
 }

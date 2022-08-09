@@ -6,48 +6,47 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Calculator</title>
         <link rel="stylesheet" href="./style.css">
-        <script src="./script.js"></script>
         <script src="https://kit.fontawesome.com/3ef20e5b59.js" crossorigin="anonymous"></script>
     </head>
     <body>
-
+        <div class="container">
         <div class="calculator">
-            <div class="screen" data-key="screen">
+            <div class="screen" id="screen">
                 <p id="top">
-                    1
+                    
                 </p>
 
                 <p id="bottom">
-                    0
+                    
                 </p>
             </div>
-            <button class="top" data-key="46" id="clear">AC.</button>
-            <button class="top" data-key="192" id="changesign">+/-</button>
-            <button class="top" id="modulus">%</button>
-            <button class="lateral" data-key="8" id="delete">
+            <button class="buttons top" data-key="46" id="clear">AC.</button>
+            <button class="buttons top" data-key="192" id="changesign">+/-</button>
+            <button class="buttons top" id="modulus">%</button>
+            <button class="buttons lateral" data-key="8" id="delete">
                 <i class="fa-solid fa-delete-left"></i>
             </button>
-            <button class="numbers" data-key="55" id="7">7</button>
-            <button class="numbers" data-key="56" id="8">8</button>
-            <button class="numbers" data-key="57" id="9">9</button>
-            <button class="lateral" data-key="191" id="division">/</button>
-            <button class="numbers" data-key="52" id="4">4</button>
-            <button class="numbers" data-key="53" id="5">5</button>
-            <button class="numbers" data-key="54" id="6">6</button>
-            <button class="lateral"  id="multiplication">*</button>
-            <button class="numbers" data-key="49" id="1">1</button>
-            <button class="numbers" data-key="50" id="2">2</button>
-            <button class="numbers" data-key="51" id="3">3</button>
-            <button class="lateral" data-key="189" id="substitution">-</button>
-            <button class="numbers" data-key="48" id="0">0</button>
-            <button class="numbers" data-key="190" id="dot">.</button>
-            <button class="lateral" id="addition">+</button>
-            <button class="lateral" data-key="187" id="equals">=</button>
+            <button class="buttons numbers" data-key="55" id="7">7</button>
+            <button class="buttons numbers" data-key="56" id="8">8</button>
+            <button class="buttons numbers" data-key="57" id="9">9</button>
+            <button class="buttons lateral" data-key="191" id="division">/</button>
+            <button class="buttons numbers" data-key="52" id="4">4</button>
+            <button class="buttons numbers" data-key="53" id="5">5</button>
+            <button class="buttons numbers" data-key="54" id="6">6</button>
+            <button class="buttons lateral"  id="multiplication">*</button>
+            <button class="buttons numbers" data-key="49" id="1">1</button>
+            <button class="buttons numbers" data-key="50" id="2">2</button>
+            <button class="buttons numbers" data-key="51" id="3">3</button>
+            <button class="buttons lateral" data-key="189" id="substitution">-</button>
+            <button class="buttons numbers" data-key="48" id="0">0</button>
+            <button class="buttons numbers" data-key="190" id="dot">.</button>
+            <button class="buttons lateral" id="addition">+</button>
+            <button class="buttons lateral" data-key="187" id="equals">=</button>
 
+        </div>
         </div>
 
         <p id="warnings">
-            test
         </p>
         
         <footer>
@@ -60,5 +59,6 @@
                 </a>
             </h3>
         </footer>
+        <script src="./script.js"></script>
     </body>
 </html>
