@@ -1,6 +1,5 @@
 
 const buttons = document.querySelectorAll('button');
-console.log(buttons);
 var upper = document.querySelector('#upper');
 var bottom = document.querySelector('#bottom');
 
@@ -140,19 +139,14 @@ function checkForSign() {
 function additionAux() {
     var n1 = firstArgument.slice(0, firstArgument.length - 1);
     n1 = parseFloat(n1);
-    console.log(n1);
     var n2 = parseFloat(secondArgument);
-    console.log(n2);
     total = n1 + n2;
-    console.log(total);
     if(total.toString().length > 9) {
         var exp = total.toExponential();
-        firstArgument = "";
-        secondArgument = exp.toString()
+        total= exp.toString()
     }
     else {
-        firstArgument = "";
-        secondArgument = total.toString();
+        total = total.toString();
     }
 }
 
@@ -172,7 +166,6 @@ function addition(input) {
 
     if(firstArgument.length) {
 
-        console.log(firstArgument);
 
         if(checkForSign() == true && secondArgument == "") {
             para.textContent = "Give me a number not a sign!";
@@ -181,8 +174,9 @@ function addition(input) {
 
         var sign = firstArgument.charAt(firstArgument.length - 1);
         equals(sign);
-        upper.textContent = secondArgument + input;
-        bottom.textContent = firstArgument;
+        upper.textContent = total + input;
+        bottom.textContent = "";
+        firstArgument = total + input
         secondArgument = "";
     }
     else {
@@ -203,12 +197,10 @@ function multiplicationAux() {
     total = n1 * n2;
     if(total.toString().length > 9) {
         var exp = total.toExponential();
-        firstArgument = "";
-        secondArgument = exp.toString()
+        total = exp.toString()
     }
     else {
-        firstArgument = "";
-        secondArgument = total.toString();
+        total = total.toString();
     }
 }
 
@@ -234,8 +226,9 @@ function multiplication(input) {
 
         var sign = firstArgument.charAt(firstArgument.length - 1);
         equals(sign);
-        upper.textContent = secondArgument + input;
-        bottom.textContent = firstArgument;
+        upper.textContent = total + input;
+        bottom.textContent = "";
+        firstArgument = total + input
         secondArgument = "";
     }
     else {
@@ -254,12 +247,10 @@ function divisionAux() {
     total = n1 / n2;
     if(total.toString().length > 9) {
         var exp = total.toExponential();
-        firstArgument = "";
-        secondArgument = exp.toString()
+        total = exp.toString()
     }
     else {
-        firstArgument = "";
-        secondArgument = total.toString();
+        total = total.toString();
     }
 }
 
@@ -293,8 +284,9 @@ function division(input) {
 
         var sign = firstArgument.charAt(firstArgument.length - 1);
         equals(sign);
-        upper.textContent = secondArgument + input;
-        bottom.textContent = firstArgument;
+        upper.textContent = total + input;
+        bottom.textContent = "";
+        firstArgument = total + input
         secondArgument = "";
     }
     else {
@@ -313,12 +305,10 @@ function modulusAux() {
     total = n1 % n2;
     if(total.toString().length > 9) {
         var exp = total.toExponential();
-        firstArgument = "";
-        secondArgument = exp.toString()
+        total = exp.toString()
     }
     else {
-        firstArgument = "";
-        secondArgument = total.toString();
+        total = total.toString();
     }
 }
 
@@ -352,8 +342,9 @@ function modulus(input) {
 
         var sign = firstArgument.charAt(firstArgument.length - 1);
         equals(sign);
-        upper.textContent = secondArgument + input;
-        bottom.textContent = firstArgument;
+        upper.textContent = total + input;
+        bottom.textContent = "";
+        firstArgument = total + input
         secondArgument = "";
     }
     else {
@@ -372,12 +363,10 @@ function substitutionAux() {
     total = n1 - n2;
     if(total.toString().length > 9) {
         var exp = total.toExponential();
-        firstArgument = "";
-        secondArgument = exp.toString()
+        total = exp.toString();
     }
     else {
-        firstArgument = "";
-        secondArgument = total.toString();
+        total = total.toString();
     }
 }
 
@@ -394,9 +383,9 @@ function substitution(input) {
         return;
     }
 
-    if(firstArgument.length) {
+    console.log(`first argument before if ${firstArgument}`);
 
-        console.log(secondArgument);
+    if(firstArgument !== "") {
 
         if(checkForSign() == true && secondArgument == "") {
             para.textContent = "Give me a number not a sign!";
@@ -405,8 +394,9 @@ function substitution(input) {
 
         var sign = firstArgument.charAt(firstArgument.length - 1);
         equals(sign);
-        upper.textContent = secondArgument + input;
-        bottom.textContent = firstArgument;
+        upper.textContent = total + input;
+        bottom.textContent = "";
+        firstArgument = total + input
         secondArgument = "";
     }
     else {
@@ -466,11 +456,8 @@ function translate(value) {
 
 function calculate(e) {
     para.textContent = "";
-    console.log(firstArgument.length);
-    console.log(e);
-    console.log(e.key);
     const id = e.id;
-    console.log(id);
+
     var value;
 
     if(!e.key)
@@ -479,9 +466,6 @@ function calculate(e) {
         value = e.key;
 
     input = translate(value);
-
-    console.log(`value is ${value}`);
-    console.log(`input is ${input}`);
 
     switch(value) {
         case '1':
@@ -552,7 +536,6 @@ function calculate(e) {
             if(prevAction == 1)
                 break;
             addition(input);
-            secondArgument = "";
             prevAction = 1;
             break;
         case '-':
@@ -560,7 +543,6 @@ function calculate(e) {
             if(prevAction == 1)
                 break;
             substitution(input);
-            secondArgument = "";
             prevAction = 1;
             break;
         case '*':
@@ -568,7 +550,6 @@ function calculate(e) {
             if(prevAction == 1)
                 break;
             multiplication(input);
-            secondArgument = "";
             prevAction = 1;
             break;
         case '/':
@@ -576,7 +557,6 @@ function calculate(e) {
             if(prevAction == 1)
                 break;
             division(input);
-            secondArgument = "";
             prevAction = 1;
             break;
         case ';':
@@ -584,7 +564,6 @@ function calculate(e) {
             if(prevAction == 1)
                 break;
             modulus(input);
-            secondArgument = "";
             prevAction = 1;
             break;
         case 'equals':
