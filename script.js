@@ -10,6 +10,7 @@ var appendedDot = false;
 var total = 0, firstNumber, secondNumber;
 var computed = false;
 var input;
+var prevAction = 0;
 
 function validateBottom(string) {
     if(string == "0")
@@ -86,7 +87,7 @@ function appendDot(dot) {
     appendedDot = true;
 
     if(secondArgument == "")
-        secondArgument = "0.";
+        secondArgument = "0";
 
     secondArgument = secondArgument + '.';
     bottom.textContent = secondArgument;
@@ -173,7 +174,7 @@ function addition(input) {
 
         console.log(firstArgument);
 
-        if(checkForSign() == true) {
+        if(checkForSign() == true && secondArgument == "") {
             para.textContent = "Give me a number not a sign!";
             return;
         }
@@ -226,7 +227,7 @@ function multiplication(input) {
 
     if(firstArgument.length) {
 
-        if(checkForSign() == true) {
+        if(checkForSign() == true && secondArgument == "") {
             para.textContent = "Give me a number not a sign!";
             return;
         }
@@ -285,7 +286,7 @@ function division(input) {
 
     if(firstArgument.length) {
 
-        if(checkForSign() == true) {
+        if(checkForSign() == true && secondArgument == "") {
             para.textContent = "Give me a number not a sign!";
             return;
         }
@@ -344,7 +345,7 @@ function modulus(input) {
 
     if(firstArgument.length) {
 
-        if(checkForSign() == true) {
+        if(checkForSign() == true && secondArgument == "") {
             para.textContent = "Give me a number not a sign!";
             return;
         }
@@ -395,7 +396,9 @@ function substitution(input) {
 
     if(firstArgument.length) {
 
-        if(checkForSign() == true) {
+        console.log(secondArgument);
+
+        if(checkForSign() == true && secondArgument == "") {
             para.textContent = "Give me a number not a sign!";
             return;
         }
@@ -483,41 +486,53 @@ function calculate(e) {
     switch(value) {
         case '1':
             appendNumber(value);
+            prevAction = 0;
             break;
         case '2':
             appendNumber(value);
+            prevAction = 0;
             break;
         case '3':
             appendNumber(value);
+            prevAction = 0;
             break;
         case '4':
             appendNumber(value);
+            prevAction = 0;
             break;
         case '5':
             appendNumber(value);
+            prevAction = 0;
             break;
         case '6':
             appendNumber(value);
+            prevAction = 0;
             break; 
         case '7':
             appendNumber(value);
+            prevAction = 0;
             break;
         case '8':
             appendNumber(value);
+            prevAction = 0;
             break;
         case '9':
             appendNumber(value);
+            prevAction = 0;
             break;
         case '0':
             appendNumber(value);
+            prevAction = 0;
             break; 
         case '.':
         case 'dot':
             appendDot(value);
+            prevAction = 0;
             break;
         case '`':
         case 'changesign':
             changeSign();
+            prevAction = 0;
             break;
         case 'clear':
         case 'Delete':
@@ -525,30 +540,52 @@ function calculate(e) {
             firstArgument = "";
             upper.textContent = "";
             bottom.textContent = "";
+            prevAction = 0;
             break;
         case 'delete':
         case 'Backspace':
             deleteLast();
+            prevAction = 0;
             break;
         case '+':
         case 'addition':
+            if(prevAction == 1)
+                break;
             addition(input);
+            secondArgument = "";
+            prevAction = 1;
             break;
         case '-':
         case 'substitution':
+            if(prevAction == 1)
+                break;
             substitution(input);
+            secondArgument = "";
+            prevAction = 1;
             break;
         case '*':
         case 'multiplication':
+            if(prevAction == 1)
+                break;
             multiplication(input);
+            secondArgument = "";
+            prevAction = 1;
             break;
         case '/':
         case 'division':
+            if(prevAction == 1)
+                break;
             division(input);
+            secondArgument = "";
+            prevAction = 1;
             break;
         case ';':
         case 'modulus':
+            if(prevAction == 1)
+                break;
             modulus(input);
+            secondArgument = "";
+            prevAction = 1;
             break;
         case 'equals':
         case '=':
