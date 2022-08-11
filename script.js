@@ -383,8 +383,6 @@ function substitution(input) {
         return;
     }
 
-    console.log(`first argument before if ${firstArgument}`);
-
     if(firstArgument !== "") {
 
         if(checkForSign() == true && secondArgument == "") {
@@ -570,8 +568,10 @@ function calculate(e) {
         case '=':
             var localsign = firstArgument.charAt(firstArgument.length - 1);
             equals(localsign);
-            upper.textContent = firstArgument;
-            bottom.textContent = secondArgument;
+            firstArgument = ""
+            upper.textContent = "";
+            secondArgument = total;
+            bottom.textContent = total;
             break;
     }
 
